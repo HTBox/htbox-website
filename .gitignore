@@ -5,6 +5,7 @@
 #N2.zip
 
 src/*/App_Data/Temp
+src/*/Properties/PublishProfiles
 
 # User-specific files
 *.suo
