@@ -138,9 +138,14 @@
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Benthos_N2CMS.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\SampleMVCController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,6 +155,7 @@
     <Compile Include="ViewModels\CMS\FakePart.cs" />
     <Compile Include="ViewModels\CMS\FakePartList.cs" />
     <Compile Include="ViewModels\CMS\Redirect.cs" />
+    <Compile Include="_ImportedCode\Benthos.N2CMS\N2CMSDelegatingControllerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -186,6 +192,7 @@
     </None>
     <Content Include="Views\CMS\Index.cshtml" />
     <None Include="Properties\PublishProfiles\localfiles.pubxml" />
+    <Content Include="Views\SampleMVC\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

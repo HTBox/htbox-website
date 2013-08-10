@@ -18,9 +18,6 @@ namespace htbox {
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-            var engine = MvcEngine.Create();
-            RouteTable.Routes.MapContentRoute("Content", engine);
         }
     }
 }

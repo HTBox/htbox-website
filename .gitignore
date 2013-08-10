@@ -4,6 +4,8 @@
 # N2 zip file - actually have to include for azure build
 #N2.zip
 
+src/*/App_Data/Temp
+
 # User-specific files
 *.suo
 *.user
