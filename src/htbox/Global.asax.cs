@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 
+using N2.Web.Mvc;
+
 namespace htbox {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -16,6 +18,9 @@ namespace htbox {
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            var engine = MvcEngine.Create();
+            RouteTable.Routes.MapContentRoute("Content", engine);
         }
     }
 }

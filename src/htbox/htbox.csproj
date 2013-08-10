@@ -41,7 +41,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="N2">
+      <HintPath>..\..\packages\N2CMS.Library.2.5.2.1\lib\N2.dll</HintPath>
+    </Reference>
+    <Reference Include="N2.Extensions">
+      <HintPath>..\..\packages\N2CMS.Management.2.5.2.1\lib\N2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="N2.IoC.Windsor3">
+      <HintPath>..\..\packages\N2CMS.Management.2.5.2.1\lib\N2.IoC.Windsor3.dll</HintPath>
+    </Reference>
+    <Reference Include="N2.Management">
+      <HintPath>..\..\packages\N2CMS.Management.2.5.2.1\lib\N2.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="N2.Packaging">
+      <HintPath>..\..\packages\N2CMS.Management.2.5.2.1\lib\N2.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="N2.ReusableParts">
+      <HintPath>..\..\packages\N2CMS.Management.2.5.2.1\lib\N2.ReusableParts.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -110,10 +140,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CMS\CMSBasePage.cs" />
+    <Compile Include="ViewModels\CMS\CMSPage.cs" />
+    <Compile Include="ViewModels\CMS\FakePart.cs" />
+    <Compile Include="ViewModels\CMS\FakePartList.cs" />
+    <Compile Include="ViewModels\CMS\Redirect.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -130,12 +166,26 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\n2_host.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="N2\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="N2\N2.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="N2\n2cms.configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\CMS\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\localfiles.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
