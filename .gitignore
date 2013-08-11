@@ -3,6 +3,7 @@
 
 # N2 zip file - actually have to include for azure build
 #N2.zip
+src/*/upload
 
 src/*/App_Data/Temp
 src/*/Properties/PublishProfiles
