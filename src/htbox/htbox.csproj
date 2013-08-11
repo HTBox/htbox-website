@@ -200,6 +200,7 @@
     <Content Include="N2\N2.zip" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\CMS.cshtml" />
     <None Include="N2\n2cms.configuration.xsd">
       <SubType>Designer</SubType>
     </None>

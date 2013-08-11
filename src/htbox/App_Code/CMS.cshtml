@@ -1,0 +1,20 @@
+﻿@using N2
+@using N2.Collections
+@using htbox.ViewModels.CMS
+
+@functions {
+}
+
+@helper FooterText() {
+    var start = N2.Find.StartPage as htbox.ViewModels.CMS.HomePage;
+    @start.FooterText
+}
+
+
+
+@helper SiteNav() {
+    var start = N2.Find.StartPage;
+    foreach (var item in start.Children.FindNavigatablePages()) {
+        <li><a href="@item.Url">@item.Title</a></li>
+    }
+}
