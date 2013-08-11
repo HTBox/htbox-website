@@ -11,6 +11,18 @@ namespace htbox.ViewModels.CMS {
     [PageDefinition("Blog")]
     [RestrictChildren(typeof(BlogPost))]
     [SortChildren(SortBy.Expression, SortExpression = "Published DESC")]
-    public class Blog : CMSPage {
+    public class Blog : CMSBasePage {
+
+        public List<BlogPost> Posts {
+            get {
+                return new List<BlogPost>(Children.FindNavigatablePages().Cast<BlogPost>());
+            }
+        }
+
+        public List<BlogPost> RecentPosts {
+            get {
+                return new List<BlogPost>(Posts.Take(5));
+            }
+        }
     }
 }

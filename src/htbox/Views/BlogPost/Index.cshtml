@@ -3,7 +3,19 @@
 @{
     ViewBag.Title = Model.Title;
 }
+<div class="body-content">
+    <h3><a href="@Model.Blog.Url">@Model.Blog.PageTitle</a></h3>
+    <h2>@ViewBag.Title</h2>
+    @if (Model.Published.HasValue) {
+        <p>@Model.Published.Value.ToLongDateString()</p>
+    } else {
+        <p>&nbsp;</p>
+    }
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.Raw(Model.Text)
+        </div>
+    </div>
+</div>
 
-<h2>@ViewBag.Title</h2>
 
-@Html.Raw(Model.Text)

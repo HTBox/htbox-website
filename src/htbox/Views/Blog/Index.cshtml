@@ -3,7 +3,25 @@
 @{
     ViewBag.Title = Model.PageTitle;
 }
+<div class="body-content">
+    <h2>@ViewBag.Title</h2>
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.Raw(Model.Text)
+        </div>
+    </div>
+    @foreach (var post in Model.Posts) {
+        <div class="row">
+            <div class="col-lg-12">
+            <h3><a href="@post.Url">@post.PostTitle</a></h3>
+            @if (post.Published.HasValue) {
+                <p>@post.Published.Value.ToLongDateString()</p>
+            } else {
+                <p>&nbsp;</p>
+            }
+                @Html.Raw(post.Text)
+            </div>
+        </div>
+    }
+</div>
 
-<h2>@ViewBag.Title</h2>
-
-@Html.Raw(Model.Text)

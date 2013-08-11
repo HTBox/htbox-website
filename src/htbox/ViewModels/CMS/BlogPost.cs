@@ -12,7 +12,14 @@ namespace htbox.ViewModels.CMS {
     [RestrictParents(typeof(Blog))]
     [WithEditableTitle, WithEditableName]
     public class BlogPost : ContentItem {
-        
+
+        [EditableText("Post Title", 90, HelpText = "Longer form title for the Post")]
+        public virtual string PostTitle { get; set; }
+
+        [EditableFreeTextArea("Post Content", 200)]
+        public virtual string Text { get; set; }
+
+        [EditableDate("Publish Date", 100)]
         public override DateTime? Published {
             get {
                 return base.Published;
@@ -20,6 +27,10 @@ namespace htbox.ViewModels.CMS {
             set {
                 base.Published = value;
             }
+        }
+
+        public Blog Blog {
+            get { return Parent as Blog; }
         }
     }
 }
