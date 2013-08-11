@@ -1,0 +1,9 @@
+﻿@model htbox.ViewModels.CMS.Blog
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.Raw(Model.Text)
