@@ -171,6 +171,7 @@
     <Content Include="static\css\app\jumbotron.css" />
     <Content Include="static\css\bootstrap\bootstrap.css" />
     <Content Include="static\css\bootstrap\bootstrap.min.css" />
+    <Content Include="static\img\ht-header.png" />
     <Content Include="static\js\bootstrap\bootstrap.js" />
     <Content Include="static\js\bootstrap\bootstrap.min.js" />
     <Content Include="static\js\respond\respond.min.js" />
