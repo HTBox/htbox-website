@@ -6,17 +6,8 @@ using N2.Details;
 namespace htbox.ViewModels.CMS {
     [WithEditableName, WithEditableTitle]
     public abstract class CMSBasePage : ContentItem {
-        [EditableText("Menu Link", 90, HelpText = "Text entered here is used instead of the Title in Menus and Links.")]
-        public virtual string AlternateMenuTitle { get; set; }
-
-        public string MenuLink {
-            get {
-                if (!String.IsNullOrWhiteSpace(AlternateMenuTitle)) {
-                    return AlternateMenuTitle;
-                }
-                return Title;
-            }
-        }
+        [EditableText("Page Title", 90, HelpText = "Longer form title for display on the page")]
+        public virtual string PageTitle { get; set; }
 
         [EditableFreeTextArea("Page Content", 100)]
         public virtual string Text { get; set; }

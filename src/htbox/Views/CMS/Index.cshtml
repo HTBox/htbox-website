@@ -1,10 +1,24 @@
 ﻿@model htbox.ViewModels.CMS.CMSPage
 
 @{
-    ViewBag.Title = Model.Title;
+    ViewBag.Title = Model.PageTitle;
 }
 <div class="body-content">
     <h2>@ViewBag.Title</h2>
-    @Html.Raw(Model.Text)
+    <div class="row">
+        @if (Model.HasImage) {
+        <div class="hidden-sm col-lg-6">
+            <img class="img-responsive" src="@Model.Image" alt="@Model.ImageAltText" />
+        </div>
+        <div class="col-lg-6">
+            @Html.Raw(Model.Text)
+        </div>
+
+        } else {
+        <div class="col-lg-12">
+            @Html.Raw(Model.Text)
+        </div>
+        }
+    </div>
 </div>
 
