@@ -5,6 +5,14 @@
 
 @functions {
 
+    public static string MenuLink(ContentItem item) {
+        var page = item as CMSBasePage;
+        if (page != null)
+            return page.MenuLink;
+        
+        return item.Title;
+    }
+
     public static int NavId() {
         var start = N2.Find.StartPage;
         var current = N2.Find.CurrentPage;
@@ -52,9 +60,9 @@
     var navId = NavId();
     foreach (var item in start.Children.FindNavigatablePages()) {
         if (item.ID == navId) {
-            <li class="active"><a href="@item.Url">@item.Title</a></li>
+            <li class="active"><a href="@item.Url">@MenuLink(item)</a></li>
         } else {
-            <li><a href="@item.Url">@item.Title</a></li>
+            <li><a href="@item.Url">@MenuLink(item)</a></li>
         }
     }
 }
