@@ -1,8 +1,25 @@
 ﻿@using N2
 @using N2.Collections
 @using htbox.ViewModels.CMS
+@using NHibernate.Dialect.Schema
 
 @functions {
+
+    public static int NavId() {
+        var start = N2.Find.StartPage;
+        var current = N2.Find.CurrentPage;
+    
+        if (current != null) {
+            if (start.ID == current.ID) {
+                return start.ID;
+            } else {
+                var top = N2.Find.AtLevel(current, start, 2);
+                return top.ID;
+            }
+        }
+
+        return -1;
+    }
 }
 
 @helper FooterText() {
@@ -10,11 +27,34 @@
     @start.FooterText
 }
 
+@helper TopNavId() {
+    var start = N2.Find.StartPage;
+    var current = N2.Find.CurrentPage;
+    var result = "";
+    
+    if (current != null) {
+        if (start.ID == current.ID) {
+            result = start.Name;
+        } else {
+            var top = N2.Find.AtLevel(current, start, 2);
+            result = top.Name;
+        }
+    } else {
+               result = "NotFound";
+    }
+    
+    @result.ToLowerInvariant().Trim().Replace(" ", "-")
+}
 
 
 @helper SiteNav() {
     var start = N2.Find.StartPage;
+    var navId = NavId();
     foreach (var item in start.Children.FindNavigatablePages()) {
-        <li><a href="@item.Url">@item.Title</a></li>
+        if (item.ID == navId) {
+            <li class="active"><a href="@item.Url">@item.Title</a></li>
+        } else {
+            <li><a href="@item.Url">@item.Title</a></li>
+        }
     }
 }
