@@ -168,6 +168,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
+    <Content Include="static\css\app\jumbotron.css" />
+    <Content Include="static\css\bootstrap\bootstrap.css" />
+    <Content Include="static\css\bootstrap\bootstrap.min.css" />
+    <Content Include="static\js\bootstrap\bootstrap.js" />
+    <Content Include="static\js\bootstrap\bootstrap.min.js" />
+    <Content Include="static\js\respond\respond.min.js" />
+    <Content Include="static\js\respond\respond.src.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -202,6 +209,8 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\BlogPost\Index.cshtml" />
     <Content Include="Views\HomePage\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

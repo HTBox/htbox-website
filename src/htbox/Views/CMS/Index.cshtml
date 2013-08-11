@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = Model.Title;
 }
+<div class="body-content">
+    <h2>Heading</h2>
+    @Html.Raw(Model.Text)
+</div>
 
-<h2>@ViewBag.Title</h2>
-
-@Html.Raw(Model.Text)
