@@ -181,6 +181,10 @@
     <Content Include="static\js\bootstrap\bootstrap.js" />
     <Content Include="static\js\bootstrap\bootstrap.min.js" />
     <Content Include="static\js\html5shiv\html5shiv.js" />
+    <Content Include="static\js\jcarousel\jquery.jcarousel-autoscroll.js" />
+    <Content Include="static\js\jcarousel\jquery.jcarousel-autoscroll.min.js" />
+    <Content Include="static\js\jcarousel\jquery.jcarousel.js" />
+    <Content Include="static\js\jcarousel\jquery.jcarousel.min.js" />
     <Content Include="static\js\jquery\jquery.js" />
     <Content Include="static\js\respond\respond.min.js" />
     <Content Include="static\js\respond\respond.src.js" />

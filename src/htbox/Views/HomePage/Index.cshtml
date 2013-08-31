@@ -7,13 +7,35 @@
 
 @section hero {
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <div class="container">
-        <img src="/upload/home/ht-hero.png" class="img-responsive" style="padding-bottom: 20px"/>
-        @Html.Raw(Model.Text)
-        <p><a class="btn btn-primary btn-lg" href="/sign-up">Sign Up Now &raquo;</a></p>
+    <div class="jumbotron">
+        <div class="jcarousel">
+            <ul>
+                <li><img src="/upload/carousel/ht-hero (1).jpg" style="width:375px"/></li>
+                <li><img src="/upload/carousel/ht-hero (2).jpg" style="width:888px"/></li>
+                <li><img src="/upload/carousel/ht-hero (3).jpg" style="width:888px"/></li>
+                <li><img src="/upload/carousel/ht-hero (4).jpg" style="width:332px"/></li>
+                <li><img src="/upload/carousel/ht-hero (5).jpg" style="width:666px"/></li>
+                <li><img src="/upload/carousel/ht-hero (6).jpg" style="width:666px"/></li>
+                <li><img src="/upload/carousel/ht-hero (7).jpg" style="width:666px"/></li>
+                <li><img src="/upload/carousel/ht-hero (8).jpg" style="width:666px"/></li>
+                <li><img src="/upload/carousel/ht-hero (9).jpg" style="width:666px"/></li>
+                <li><img src="/upload/carousel/ht-hero (10).jpg" style="width:666px"/></li>
+                <li><img src="/upload/carousel/ht-hero (11).jpg" style="width:666px"/></li>
+                <li><img src="/upload/carousel/ht-hero (12).jpg" style="width:666px"/></li>
+                <li><img src="/upload/carousel/ht-hero (13).jpg" style="width:666px"/></li>
+                <li><img src="/upload/carousel/ht-hero (14).jpg" style="width:666px"/></li>
+                <li><img src="/upload/carousel/ht-hero (15).jpg" style="width:666px"/></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <img src="/upload/home/ht-hero.png" class="img-responsive" style="padding-bottom: 20px"/>
+                @Html.Raw(Model.Text)
+                <p><a class="btn btn-primary btn-lg" href="/sign-up">Sign Up Now &raquo;</a></p>
+            </div>
+        </div>
     </div>
-</div>
 }
 
 
@@ -32,3 +54,18 @@
         <p>@Model.SubBody3</p>
     </div>
 </div>
+
+@section scripts {
+    <script src="/static/js/jcarousel/jquery.jcarousel.js"></script>
+    <script src="/static/js/jcarousel/jquery.jcarousel-autoscroll.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('.jcarousel').jcarousel({
+                'wrap': 'circular',
+                'animation': 2000
+            }).jcarouselAutoscroll({
+                'interval': 5000
+            });
+        });
+    </script>
+}
