@@ -174,11 +174,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
-    <Content Include="static\css\app\jumbotron.css" />
+    <Content Include="static\css\app\htbox-website.css" />
     <Content Include="static\css\bootstrap\bootstrap.css" />
     <Content Include="static\css\bootstrap\bootstrap.min.css" />
     <Content Include="static\js\bootstrap\bootstrap.js" />
     <Content Include="static\js\bootstrap\bootstrap.min.js" />
+    <Content Include="static\js\html5shiv\html5shiv.js" />
+    <Content Include="static\js\jquery\jquery.js" />
     <Content Include="static\js\respond\respond.min.js" />
     <Content Include="static\js\respond\respond.src.js" />
     <Content Include="Web.config" />
