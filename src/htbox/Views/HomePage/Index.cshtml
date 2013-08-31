@@ -4,28 +4,31 @@
 @{
     ViewBag.Title = Model.PageTitle;
 }
-      <!-- Main jumbotron for a primary marketing message or call to action -->
+
+@section hero {
+<!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-    <img src="/upload/home/ht-hero.png" class="img-responsive" style="padding-bottom: 20px"/>
-    @Html.Raw(Model.Text)
-    <p><a class="btn btn-primary btn-lg" href="/sign-up">Sign Up Now &raquo;</a></p>
+    <div class="container">
+        <img src="/upload/home/ht-hero.png" class="img-responsive" style="padding-bottom: 20px"/>
+        @Html.Raw(Model.Text)
+        <p><a class="btn btn-primary btn-lg" href="/sign-up">Sign Up Now &raquo;</a></p>
+    </div>
 </div>
+}
 
 
-<div class="body-content">
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-lg-4">
-            <h2>@Model.SubHeading1</h2>
-            <p>@Model.SubBody1</p>
-        </div>
-        <div class="col-lg-4">
-            <h2>@Model.SubHeading2</h2>
-            <p>@Model.SubBody2</p>
-        </div>
-        <div class="col-lg-4">
-            <h2>@Model.SubHeading3</h2>
-            <p>@Model.SubBody3</p>
-        </div>
+<!-- Example row of columns -->
+<div class="row">
+    <div class="col-lg-4">
+        <h3>@Model.SubHeading1</h3>
+        <p>@Model.SubBody1</p>
+    </div>
+    <div class="col-lg-4">
+        <h3>@Model.SubHeading2</h3>
+        <p>@Model.SubBody2</p>
+    </div>
+    <div class="col-lg-4">
+        <h3>@Model.SubHeading3</h3>
+        <p>@Model.SubBody3</p>
     </div>
 </div>
