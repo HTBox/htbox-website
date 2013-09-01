@@ -120,3 +120,11 @@ body {
 .jcarousel li {
     float: left;
 }
+
+/* reset lead to base p styling in blog post listings */
+.blog-post-listing .lead {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 1.4285;
+}

@@ -9,7 +9,7 @@
         @Html.Raw(Model.Text)
     </div>
     @foreach (var post in Model.Posts) {
-        <div>
+        <div class="blog-post-listing">
             <h3><a href="@post.Url">@post.PostTitle</a></h3>
             @if (post.Published.HasValue) {
                 <p class="text-muted">@post.Published.Value.ToLongDateString()</p>
