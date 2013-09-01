@@ -29,6 +29,13 @@ namespace htbox.ViewModels.CMS {
             }
         }
 
+        [EditableImageUpload("Post Image", 300)]
+        public virtual string Image { get; set; }
+
+        public bool HasImage {
+            get { return !string.IsNullOrWhiteSpace(Image); }
+        }
+
         public Blog Blog {
             get { return Parent as Blog; }
         }

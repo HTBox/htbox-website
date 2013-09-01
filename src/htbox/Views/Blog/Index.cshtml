@@ -3,25 +3,24 @@
 @{
     ViewBag.Title = Model.PageTitle;
 }
-<div class="body-content">
-    <h2>@ViewBag.Title</h2>
-    <div class="row">
-        <div class="col-lg-12">
-            @Html.Raw(Model.Text)
-        </div>
+<div class="container">
+    <div class="page-header">
+        <h2>@ViewBag.Title</h2>
+        @Html.Raw(Model.Text)
     </div>
     @foreach (var post in Model.Posts) {
-        <div class="row">
-            <div class="col-lg-12">
+        <div>
             <h3><a href="@post.Url">@post.PostTitle</a></h3>
             @if (post.Published.HasValue) {
-                <p>@post.Published.Value.ToLongDateString()</p>
+                <p class="text-muted">@post.Published.Value.ToLongDateString()</p>
             } else {
                 <p>&nbsp;</p>
             }
-                @Html.Raw(post.Text)
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    @Html.Raw(post.Text)
+                </div>
             </div>
         </div>
     }
 </div>
-

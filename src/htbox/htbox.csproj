@@ -177,6 +177,7 @@
     <Content Include="static\css\app\htbox-website.css" />
     <Content Include="static\css\bootstrap\bootstrap.css" />
     <Content Include="static\css\bootstrap\bootstrap.min.css" />
+    <Content Include="static\css\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="static\css\wp8fix\wp8fix.css" />
     <Content Include="static\js\bootstrap\bootstrap.js" />
     <Content Include="static\js\bootstrap\bootstrap.min.js" />
@@ -223,6 +224,9 @@
     <Content Include="Views\HomePage\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="static\css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="static\css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="static\css\fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
