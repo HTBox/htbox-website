@@ -3,23 +3,18 @@
 @{
     ViewBag.Title = Model.PageTitle;
 }
-<div class="container">
-    <div class="page-header">
-        <h2>@ViewBag.Title</h2>
-    </div>
-    <div class="row">
-    @if (Model.HasImage) {
-        <div class="col-sm-12 col-md-8">
-            @Html.Raw(Model.Text)
-        </div>
-        <div class="hidden-xs hidden-sm col-md-4">
-            <img class="img-responsive" src="@Model.Image" alt="@Model.ImageAltText" />
-        </div>
-    } else {
-        <div class="col-xs-12">
-            @Html.Raw(Model.Text)
-        </div>
-    }
-    </div>
-</div>
 
+<div class="row">
+@if (Model.HasImage) {
+    <div class="col-sm-12 col-md-8">
+        @Html.Raw(Model.Text)
+    </div>
+    <div class="hidden-xs hidden-sm col-md-4">
+        <img class="img-responsive" src="@Model.Image" alt="@Model.ImageAltText" />
+    </div>
+} else {
+    <div class="col-xs-12">
+        @Html.Raw(Model.Text)
+    </div>
+}
+</div>

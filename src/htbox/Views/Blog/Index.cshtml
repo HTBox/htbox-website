@@ -2,25 +2,21 @@
 
 @{
     ViewBag.Title = Model.PageTitle;
+    ViewBag.SubTitle = Model.Text;
 }
-<div class="container">
-    <div class="page-header">
-        <h2>@ViewBag.Title</h2>
-        @Html.Raw(Model.Text)
-    </div>
-    @foreach (var post in Model.Posts) {
-        <div class="blog-post-listing">
-            <h3><a href="@post.Url">@post.PostTitle</a></h3>
-            @if (post.Published.HasValue) {
-                <p class="text-muted">@post.Published.Value.ToLongDateString()</p>
-            } else {
-                <p>&nbsp;</p>
-            }
-            <div class="row">
-                <div class="col-xs-12 col-sm-8">
-                    @Html.Raw(post.Text)
-                </div>
+
+@foreach (var post in Model.Posts) {
+    <div class="blog-post-listing">
+        <h3><a href="@post.Url">@post.PostTitle</a></h3>
+        @if (post.Published.HasValue) {
+            <p class="text-muted">@post.Published.Value.ToLongDateString()</p>
+        } else {
+            <p>&nbsp;</p>
+        }
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                @Html.Raw(post.Text)
             </div>
         </div>
-    }
-</div>
+    </div>
+}

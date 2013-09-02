@@ -1,32 +1,28 @@
 ﻿@model htbox.ViewModels.CMS.BlogPost
 
 @{
-    ViewBag.Title = Model.Title;
+    ViewBag.BackPage = Model.Blog;
 }
-<div class="container">
-    <div class="page-header">
-        <h4 class="text-right"><a href="@Model.Blog.Url">@Model.Blog.PageTitle</a></h4>
-    </div>
-    @if (Model.HasImage) {
-        <div class="row">
-            <div class="col-xs-12 col-sm-8">
-                <img class="img-responsive" src="@Model.Image" />
-            </div>
-        </div>
-    }
-    <div>
-        <h2>@ViewBag.Title</h2>
-        @if (Model.Published.HasValue) {
-            <p class="text-muted">@Model.Published.Value.ToLongDateString()</p>
-        } else {
-            <p>&nbsp;</p>
-        }
-        <p>&nbsp;</p>
-    </div>
+
+@if (Model.HasImage) {
     <div class="row">
         <div class="col-xs-12 col-sm-8">
-            @Html.Raw(Model.Text)
+            <img class="img-responsive" src="@Model.Image" />
         </div>
+    </div>
+}
+<div>
+    <h2>@Model.Title</h2>
+    @if (Model.Published.HasValue) {
+        <p class="text-muted">@Model.Published.Value.ToLongDateString()</p>
+    } else {
+        <p>&nbsp;</p>
+    }
+    <p>&nbsp;</p>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+        @Html.Raw(Model.Text)
     </div>
 </div>
 
