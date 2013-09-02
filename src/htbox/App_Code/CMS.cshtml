@@ -8,6 +8,7 @@
     public static int NavId() {
         var start = N2.Find.StartPage;
         var current = N2.Find.CurrentPage;
+        var ViewBag = ((System.Web.Mvc.WebViewPage)PageContext.Page).ViewBag;
     
         if (current != null) {
             if (start.ID == current.ID) {
@@ -15,6 +16,10 @@
             } else {
                 var top = N2.Find.AtLevel(current, start, 2);
                 return top.ID;
+            }
+        } else if (ViewBag.BackingContentId != null) {
+            if (ViewBag.BackingContentId is int) {
+                return (int)ViewBag.BackingContentId;
             }
         }
 

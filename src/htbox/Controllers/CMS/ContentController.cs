@@ -10,6 +10,12 @@ namespace htbox.Controllers.CMS {
     [Controls(typeof(CMSPage))]
     public class CMSController : ContentController<CMSPage> {
         public override ActionResult Index() {
+
+            if (!string.IsNullOrWhiteSpace(CurrentItem.MvcSubstitueUrl)) {
+                var url = CurrentItem.MvcSubstitueUrl + "?backingcontentid=" + CurrentItem.ID;
+                return Redirect(url);
+            }
+
             return base.Index();
         }
     }

@@ -5,14 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 
 using htbox.ViewModels;
+using htbox._ImportedCode.Benthos.N2CMS;
 
 namespace htbox.Controllers
 {
-    public class MailingListController : Controller
+    public class MailingListController : N2CMSAwareMvcController
     {
         public ActionResult Subscribe() {
+            //TODO: Move this back to base class
             if (TempData["ViewData"] != null)
                 ViewData = (ViewDataDictionary)TempData["ViewData"];
+
+            ViewBag.Content = BackingContentSource;
 
             var model = new MailingListSubscribeViewModel();
 
@@ -30,14 +34,14 @@ namespace htbox.Controllers
                 TempData["alert-danger"] = "Could not sign up! Please try again.";
             }
             if (!ModelState.IsValid) {
-                //TODO: need to pull in my tempdata cookieprovider so we are multi-server tolerant with tempdata
+                //TODO: move to base class and need to pull in my tempdata cookieprovider so we are multi-server tolerant with tempdata
                 TempData["ViewData"] = ViewData;
                 return RedirectToAction("Subscribe");
             }
 
             //TODO: do actual subscription processing
 
-            //TODO: need to pull in my tempdata cookieprovider so we are multi-server tolerant with tempdata
+            //TODO: move to base class and need to pull in my tempdata cookieprovider so we are multi-server tolerant with tempdata
             TempData["alert-success"] = "Thank you! You are now signed up.";
             return RedirectToAction("Subscribe");
         }

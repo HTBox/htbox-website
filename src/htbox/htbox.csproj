@@ -155,6 +155,7 @@
     <Compile Include="Controllers\CMS\HomePageController.cs" />
     <Compile Include="Controllers\CMS\ContentController.cs" />
     <Compile Include="Controllers\MailingListController.cs" />
+    <Compile Include="_ImportedCode\Benthos.N2CMS\N2CMSAwareMvcController.cs" />
     <Compile Include="Controllers\SampleMVCController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

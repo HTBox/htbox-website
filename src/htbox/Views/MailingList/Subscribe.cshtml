@@ -1,10 +1,15 @@
 ﻿@model htbox.ViewModels.MailingListSubscribeViewModel
 
 @{
-    ViewBag.Title = "Get Connected with the Humanitarian Toolbox";
+    ViewBag.Title = "Sign Up";
+    
+    if (ViewBag.Content != null) {
+        ViewBag.Title = ViewBag.Content.PageTitle;
+        ViewBag.SubTitle = ViewBag.Content.Text;
+    }
 }
 
-@using(Html.BeginForm("Subscribe", "MailingList", FormMethod.Post, new {role = "form"})) {
+<form action="@Request.Url.PathAndQuery" method="post" role="form">
     @Html.AntiForgeryToken()
 
     <div class="row">
@@ -63,7 +68,7 @@
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Sign Up</button>
-}
+</form>
 
 @section scripts {
     <script src="/static/js/mvc-validate/jquery.validate.min.js"></script>
