@@ -13,6 +13,11 @@ body {
     background-color: rgb(213,37,49)
 }
 
+.navbar-inverse .navbar-brand > span {
+    color: #ffffff;
+    font-weight: 700;
+}
+
 .navbar-inverse .navbar-nav > li > a {
   color: #ffffff;
 }
