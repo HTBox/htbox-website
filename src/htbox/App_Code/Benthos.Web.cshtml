@@ -1,0 +1,23 @@
+﻿@using System.Web.Mvc
+
+@helper AlertBox(TempDataDictionary tempData) {
+    var alertkey = tempData.Keys.FirstOrDefault(key => key.StartsWith("alert-"));
+    if (alertkey == null) {
+        return;
+    }
+
+    <div class="alert @alertkey alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            @AlertMessage(tempData[alertkey].ToString())
+    </div>
+}
+
+@helper AlertMessage(string message) {
+    
+    var index = message.IndexOf("!");
+    if (index == -1) {
+        @message
+    } else {
+        <strong>@message.Substring(0, index + 1)</strong> @message.Substring(index + 1)
+    }
+}

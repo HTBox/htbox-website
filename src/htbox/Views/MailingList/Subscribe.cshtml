@@ -1,0 +1,73 @@
+﻿@model htbox.ViewModels.MailingListSubscribeViewModel
+
+@{
+    ViewBag.Title = "Get Connected with the Humanitarian Toolbox";
+}
+
+@using(Html.BeginForm("Subscribe", "MailingList", FormMethod.Post, new {role = "form"})) {
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label for="FirstName">Name</label>
+            @Html.TextBoxFor(m => m.FirstName, new { @class="form-control", placeholder="First"})
+            @Html.ValidationMessageFor(m => m.FirstName, null, new { @class="help-block" })
+        </div>
+        <div class="form-group col-md-3">
+            <label class="hidden-xs hidden-sm" for="LastName">&nbsp;</label>
+            @Html.TextBoxFor(m => m.LastName, new { @class="form-control", placeholder="Last"})
+            @Html.ValidationMessageFor(m => m.LastName, null, new { @class="help-block" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-6">
+            @Html.LabelFor(m => m.EmailAddress)
+            @Html.TextBoxFor(m => m.EmailAddress, new { @class="form-control", @type = "email", placeholder="Email address"})
+            @Html.ValidationMessageFor(m => m.EmailAddress, null, new { @class="help-block" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Interest(s)</label>
+            <div class="checkbox">
+                <label><input id="Interests" type="checkbox" value="Citizen"> Individual</label>
+            </div>
+            <div class="checkbox">
+                <label><input id="Interests" type="checkbox" value="Technology"> Technology</label>
+            </div>
+            <div class="checkbox">
+                <label><input id="Interests" type="checkbox" value="Government"> Government Agency</label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <lable class="hidden-xs hidden-sm">&nbsp;</lable>
+            <div class="checkbox">
+                <label><input id="Interests" type="checkbox" value="Private"> Private Sector</label>
+            </div>
+            <div class="checkbox">
+                <label><input id="Interests" type="checkbox" value="NGO"> NGO and Non-Profit</label>
+            </div>
+            <div class="checkbox">
+                <label><input id="Interests" type="checkbox" value="Other"> Other</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label for="EmailFormat">Email format</label>
+            <select id="EmailFormat" class="form-control">
+                <option value="Html">Html</option>
+                <option value="Text">Text</option>
+                <option value="Mobile">Mobile</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+}
+
+@section scripts {
+    <script src="/static/js/mvc-validate/jquery.validate.min.js"></script>
+    <script src="/static/js/mvc-validate/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="/static/js/mvc-validate/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/static/js/mvc-validate/jquery.validate.unobtrusive.bootstrap.js"></script>
+}
