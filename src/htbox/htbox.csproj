@@ -189,7 +189,7 @@
     <Content Include="static\js\jquery\jquery.js" />
     <Content Include="static\js\respond\respond.min.js" />
     <Content Include="static\js\respond\respond.src.js" />
-    <Content Include="static\js\wp8fix.js" />
+    <Content Include="static\js\wp8fix\wp8fix.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
