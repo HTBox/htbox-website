@@ -53,11 +53,11 @@
                     @if (ViewBag.Title != null) {
                         <h2>@ViewBag.Title</h2>
                     }
-                    @if (ViewBag.SubTitle != null) {
-                        @Html.Raw(ViewBag.SubTitle)
-                    }
                     @if (ViewBag.BackPage != null) {
                         <h4 class="text-right"><a href="@ViewBag.BackPage.Url">@ViewBag.BackPage.PageTitle</a></h4>
+                    }
+                    @if (ViewBag.SubTitle != null) {
+                        @Html.Raw(ViewBag.SubTitle)
                     }
                 </div>
             }
