@@ -48,9 +48,9 @@
         @RenderSection("hero", required:false)
 
         <div class="container">
-            @if (ViewBag.Title != null || ViewBag.BackPage != null) {
+            @if (((ViewBag.ShowTitleOnPage == null || ViewBag.ShowTitleOnPage == true) && ViewBag.Title != null) || ViewBag.BackPage != null) {
                 <div class="page-header">
-                    @if (ViewBag.Title != null) {
+                    @if ((ViewBag.ShowTitleOnPage == null || ViewBag.ShowTitleOnPage == true) && ViewBag.Title != null) {
                         <h2>@ViewBag.Title</h2>
                     }
                     @if (ViewBag.BackPage != null) {

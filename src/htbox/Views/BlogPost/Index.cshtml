@@ -1,6 +1,8 @@
 ﻿@model htbox.ViewModels.CMS.BlogPost
 
 @{
+    ViewBag.Title = Model.Title + " : " + Model.Blog.PageTitle;
+    ViewBag.ShowTitleOnPage = false;
     ViewBag.BackPage = Model.Blog;
 }
 
