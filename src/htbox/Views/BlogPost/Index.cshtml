@@ -6,6 +6,11 @@
     ViewBag.BackPage = Model.Blog;
 }
 
+@section Header {
+    <link type="application/rss+xml" rel="alternate" title="@Model.Blog.PageTitle" href="@Model.Blog.Url/rss" />
+    <link type="application/atom+xml" rel="alternate" title="@Model.Blog.PageTitle" href="@Model.Blog.Url/atom" />
+}
+
 @if (Model.HasImage) {
     <div class="row">
         <div class="col-xs-12 col-sm-8">
