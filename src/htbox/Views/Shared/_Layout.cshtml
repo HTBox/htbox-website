@@ -53,10 +53,10 @@
             @if (((ViewBag.ShowTitleOnPage == null || ViewBag.ShowTitleOnPage == true) && ViewBag.Title != null) || ViewBag.BackPage != null) {
                 <div class="page-header">
                     @if ((ViewBag.ShowTitleOnPage == null || ViewBag.ShowTitleOnPage == true) && ViewBag.Title != null) {
-                        <h2>@ViewBag.Title</h2>
+                        <h2>@ViewBag.Title @Html.Raw(ViewBag.TitleSuffixHtml)</h2>
                     }
                     @if (ViewBag.BackPage != null) {
-                        <h4 class="text-right"><a href="@ViewBag.BackPage.Url">@ViewBag.BackPage.PageTitle</a></h4>
+                        <h4 class="text-right"><a href="@ViewBag.BackPage.Url">@ViewBag.BackPage.PageTitle</a> @Html.Raw(ViewBag.BackPageSuffixHtml)</h4>
                     }
                     @if (ViewBag.SubTitle != null) {
                         @Html.Raw(ViewBag.SubTitle)

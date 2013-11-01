@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = Model.PageTitle;
+    ViewBag.TitleSuffixHtml = "<a href='" + Model.Url + "/rss'><img src='/static/img/appbar.rss.png' title='Suscribe to RSS feed' height='36'/></a>";
     ViewBag.SubTitle = Model.Text;
 }
 

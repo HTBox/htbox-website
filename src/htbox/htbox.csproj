@@ -202,6 +202,8 @@
     <Content Include="static\css\bootstrap\bootstrap.min.css" />
     <Content Include="static\css\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="static\css\wp8fix\wp8fix.css" />
+    <Content Include="static\img\appbar.rss.hover.png" />
+    <Content Include="static\img\appbar.rss.png" />
     <Content Include="static\js\bootstrap\bootstrap.js" />
     <Content Include="static\js\bootstrap\bootstrap.min.js" />
     <Content Include="static\js\html5shiv\html5shiv.js" />
@@ -236,7 +238,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="static\img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
