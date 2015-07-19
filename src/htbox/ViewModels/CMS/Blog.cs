@@ -21,7 +21,7 @@ namespace htbox.ViewModels.CMS {
 
         public List<BlogPost> RecentPosts {
             get {
-                return new List<BlogPost>(Posts.Take(10).OrderByDescending(p => p.Published));
+                return new List<BlogPost>(Posts.Where(p => p.IsPublished()).Take(10).OrderByDescending(p => p.Published));
             }
         }
     }

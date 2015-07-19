@@ -34,5 +34,37 @@ namespace htbox.ViewModels.CMS {
 
         [EditableText("Footer Text (for every page)", 600)]
         public virtual string FooterText { get; set; }
+
+        public IList<BlogPost> RecentItems {
+            get { return _recentItems ?? (_recentItems = GetRecentItems()); }
+        }
+
+        public BlogPost FeatureItem {
+            get { return _featureItem ?? (_featureItem = GetFeatureItem()); }
+        }
+
+        private BlogPost _featureItem;
+        private IList<BlogPost> _recentItems;
+
+        IList<BlogPost> GetRecentItems() {
+            var items = N2.Find.Items.Where.Type.Eq(typeof(Blog)).Select();
+            if (items.Count < 1)
+                throw new Exception("EventList not found.");
+            var blog1 = items[0] as Blog;
+            var posts = blog1.RecentPosts.Take(5).ToList();
+
+            if (items.Count > 1) {
+                var blog2 = items[1] as Blog;
+                posts.AddRange(blog2.RecentPosts.Take(5));
+            }
+
+            posts.OrderBy(p => p.Published);
+
+            return posts.Take(5).ToList();
+        }
+
+        private BlogPost GetFeatureItem() {
+            return RecentItems.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Image));
+        }
     }
 }

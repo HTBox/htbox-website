@@ -45,8 +45,30 @@
 }
 
 
-<!-- Example row of columns -->
 <div class="sub-hero row">
+    <div class="col-lg-12">
+        <h2>Recent News</h2>
+    </div>
+    <div class="col-lg-8">
+        <a href="@Model.FeatureItem.Url"><img src="@Model.FeatureItem.Image" class="img-responsive" style="max-height: 280px;"/></a>
+        <h4>@Model.FeatureItem.PostTitle <a href="@Model.FeatureItem.Url">[learn more]</a></h4>
+        <p  class="text-muted">@Model.FeatureItem.Published.Value.ToShortDateString()</p>
+    </div>
+    <div class="col-lg-4">
+        @foreach (var item in Model.RecentItems) {
+            if (item.ID != Model.FeatureItem.ID) {
+            <p><a href="@item.Url">@item.PostTitle</a> <br /> <span class="text-muted">@item.Published.Value.ToShortDateString()</span></p>
+            }
+        }
+    </div>
+</div>
+
+<hr />
+
+<div class="sub-hero row">
+    <div class="col-lg-12">
+        <h2>What We Do</h2>
+    </div>
     <div class="col-lg-4">
         <h3>@Model.SubHeading1</h3>
         <p>@Model.SubBody1</p>
