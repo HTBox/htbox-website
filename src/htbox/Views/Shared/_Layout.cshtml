@@ -89,17 +89,18 @@
         @RenderSection("scripts", required:false)
         
         <script type="text/javascript">
-            var _gauges = _gauges || [];
-            (function () {
-                var t = document.createElement('script');
-                t.type = 'text/javascript';
-                t.async = true;
-                t.id = 'gauges-tracker';
-                t.setAttribute('data-site-id', '522514f0f5a1f524a200001b');
-                t.src = '//secure.gaug.es/track.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(t, s);
-            })();
+          var _gauges = _gauges || [];
+          (function() {
+            var t   = document.createElement('script');
+            t.type  = 'text/javascript';
+            t.async = true;
+            t.id    = 'gauges-tracker';
+            t.setAttribute('data-site-id', '55acfa0d5dd0535c30000087');
+            t.setAttribute('data-track-path', 'http://track.gaug.es/track.gif');
+            t.src = 'http://track.gaug.es/track.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(t, s);
+          })();
         </script>
     </body>
 </html>
