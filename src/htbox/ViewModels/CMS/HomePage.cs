@@ -64,7 +64,13 @@ namespace htbox.ViewModels.CMS {
         }
 
         private BlogPost GetFeatureItem() {
-            return RecentItems.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Image));
+            var featureItem = RecentItems.FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.Image));
+
+            if (featureItem == null) {
+                featureItem = RecentItems[0];
+            }
+
+            return featureItem;
         }
     }
 }
