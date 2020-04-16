@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
 using MailChimp;
-using MailChimp.Types;
+using MailChimp.Net;
 
 using htbox.ViewModels;
 using htbox._ImportedCode.Benthos.N2CMS;
+using MailChimp.Net.Interfaces;
+using MailChimp.Net.Models;
 
 namespace htbox.Controllers
 {
@@ -31,7 +34,7 @@ namespace htbox.Controllers
         // POST: /MailingList/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Subscribe(MailingListSubscribeViewModel viewModel) {
+        public async Task<ActionResult> Subscribe(MailingListSubscribeViewModel viewModel) {
             //TODO: Remove this as it is for fake processing to check that only ".com" addresses are valid
             if (!ModelState.IsValid) {
                 //TODO: move to base class and need to pull in my tempdata cookieprovider so we are multi-server tolerant with tempdata
@@ -44,17 +47,13 @@ namespace htbox.Controllers
             string mailChimpApiKey = ConfigurationSettings.AppSettings["MailChimpApiKey"];
             string mailChimpListId = ConfigurationSettings.AppSettings["MailChimpListId"];
 
-            var mailChimp = new MCApi(mailChimpApiKey, true);
+            IMailChimpManager manager = new MailChimpManager(mailChimpApiKey);
 
-            mailChimp.ListSubscribe(mailChimpListId, viewModel.EmailAddress,
-                                    new List.Merges {
-                                        {"FNAME", viewModel.FirstName},
-                                        {"LNAME", viewModel.LastName}
-                                    }, new List.SubscribeOptions() {
-                                        DoubleOptIn = false,
-                                        SendWelcome = false,
-                                        UpdateExisting = true
-                                    });
+            // Use the Status property if updating an existing member
+            var member = new Member { EmailAddress = viewModel.EmailAddress, StatusIfNew = Status.Subscribed };
+            member.MergeFields.Add("FNAME", viewModel.FirstName);
+            member.MergeFields.Add("LNAME", viewModel.LastName);
+            await manager.Members.AddOrUpdateAsync(mailChimpListId, member);
 
             //TODO: move to base class and need to pull in my tempdata cookieprovider so we are multi-server tolerant with tempdata
             TempData["alert-success"] = "Thank you! You are now signed up.";
